@@ -1,0 +1,701 @@
+    # 6.7 Практическая работа
+    # Задача 1. Кубы чисел
+    number = int(input('Введите число: '))
+    count = 0
+    while count < number:
+        count = count + 1
+        print(count, '**', number, '=', count**number)
+        if count == number:
+            break
+
+    # Задача 2. Коллекторы
+    name = str(input('Имя должника: '))
+    debt_summ = int(input('Сумма долга: '))
+    print(name, ', ваша задолженность составляет', debt_summ, 'рублей')
+    repay = 0
+    while repay != debt_summ:
+        repay = int(input('Сколько рублей вы внесёте прямо сейчас, чтобы её погасить? '))
+        if repay >= debt_summ:
+            print('Отлично,', name, '! Вы погасили долг. Спасибо!')
+            break
+        print('Маловато', name, '. Давайте ещё раз.')
+
+    # Задача 3. Слишком большие числа
+    long_number = int(input('Введите длинное число: '))
+    decimal_number = 0
+    while long_number > 0:
+        decimal_number = decimal_number + 1
+        long_number = long_number // 10
+    print('Количество цифр: ', decimal_number)
+
+    # Задача 4. Поставьте оценку!
+    count_positive = 0
+    count_negative = 0
+    while True:
+        number = int(input('Введите число: '))
+        if number < 0:
+            count_negative = count_negative + 1
+        elif number == 0:
+            break;
+        else:
+            count_positive = count_positive + 1
+    print('Кол-во положительных чисел: ', count_positive)
+    print('Кол-во отрицательных чисел: ', count_negative)
+
+    # Задача 5. Обычный день на работе
+    print('Начался восьмичасовой рабочий день.')
+    hour = 0
+    beginning_task = 0
+    beginning_call = 0
+    while hour != 8:
+        hour += 1
+        print(hour, '-й час')
+        task = int(input('Сколько задач решит Максим? '))
+        beginning_task = beginning_task + task
+        call = int(input('Звонит жена. Взять трубку? (1 — да, 0 — нет): '))
+        beginning_call += call
+    print('Рабочий день закончился. Всего выполнено задач:', beginning_task)
+    if beginning_call > 0:
+        print('Нужно зайти в магазин.')
+
+    # Задача 6. Вклады
+    summ = int(input('Введите сумму рублей: '))
+    percent = int(input('На сколько % увеличивается? '))
+    need = int(input('Желмаемая сумма:' ))
+    year = 0
+    while summ < need:
+        year += 1
+        summ = ((summ * percent) / 100) + summ
+    print('Пройдет', year, 'лет прежде чем сумма достигнет', need)
+
+    # Задача 7. Игра «Угадай число»
+    son = 0
+    father = 7
+    case = 0
+    while father != son:
+        son = int(input('Введите число: '))
+        case += 1
+        if son < father:
+            print('Число меньше, чем нужно. Попробуйте ещё раз!')
+        elif son > father:
+            print('Число больше, чем нужно. Попробуйте ещё раз!')
+        else:
+            print('Вы угадали! Число попыток:', case)
+
+    # Задача 8. Игра «Компьютер угадывает число»
+    son = int(input('Какое число вы хотите загадать? '))
+    min_number = 1
+    max_number = 101
+    attempts = 1
+    while True:
+        number = (min_number + max_number) // 2
+        print(number)
+        son_answer = int(input('Твоё число равно, меньше или больше, чем мое число? 1 — равно, 2 — больше, 3 — меньше: '))
+        if son_answer == 2:
+            min_number = number
+        elif son_answer == 3:
+            max_number = number
+        else:
+            print('Вы угадали число! Количество попыток:', attempts)
+            break
+        attempts += 1
+
+    # 7.6 Практическая работа
+    # Задача 1. Должники
+    even_postive = 0
+    count = 1
+    for number in range(1, 10 + 1):
+        number = int(input('Введите число: '))
+        print('Выбрано', count, 'из 10 чисел')
+        count = count + 1
+        if number % 2 == 0 and number > 0:
+            even_postive += 1
+    print('Четные числа:', even_postive)
+
+    # Задача 2. Посчитай чужую зарплату
+    average_salary = 0
+    salary_year = 0
+    month_count = 1
+    for month_count in range(12):
+        salary = int(input('Введите зарплату: '))
+        salary_year = salary_year + salary
+    average_salary = salary_year // 12
+    print('Средняя зарплата за год:', average_salary)
+
+    # Задача 3. Факториал
+    number = int(input('Введите число: '))
+    result = 1
+    for n in range(1, number + 1):
+        result  =  result * n
+    print('Факториал числа', number, 'равен', result)
+
+    # Задача 4. Успеваемость в классе
+    number = int(input('Введите число учеников: '))
+    mark_3 = 0
+    mark_4 = 0
+    mark_5 = 0
+    for i in range (1, number + 1):
+        mark = int(input('Введите оценку: '))
+        if mark == 3:
+            mark_3 += 1
+        elif mark == 4:
+            mark_4 += 1
+        elif mark == 5:
+            mark_5 += 1
+    if mark_5 > mark_4 and mark_5 > mark_3:
+        print('Отличников больше')
+    elif mark_4 > mark_5 and mark_4 > mark_3:
+        print('Хорошистов больше')
+    elif mark_3 > mark_5 and mark_3 > mark_4:
+        print('Тройщников больше')
+
+    # Задача 5. Отрезок
+    a = int(input('Введите число А: '))
+    b = int(input('Введите число B: '))
+    result = 0
+    count = 0
+    for i in range(a, b + 1):
+        if i % 3 == 0:
+            result = result + i
+            count += 1
+    result = result // count
+    print('Среднее арифметическое всех чисел из отрезка', a, 'до', b, 'будет', result)
+
+    # Задача 6. Замечательные числа
+    for i in range (10, 100):
+      a = i // 10
+      b = i % 10
+      if a * b * 3 == i:
+          print(i)
+
+    # Задача 7. Пропавшая карточка
+    cards = int(input('Введите кол-во карточек: '))
+    summ_number = 0
+    summ_cards = 0
+    for number in range(1, cards + 1):
+        summ_number += number
+    for count in range(cards - 1):
+        remaining = int(input('Введите номер оставшейся карточки: '))
+        summ_cards += remaining
+        result = summ_number - summ_cards
+    print('Номер пропавшей карточки', result)
+
+    # 8.6 Практическая работа
+    # Задача 1. Космическая еда
+    month = 0
+    food = 100
+    for eat in range(food, 0, -4):
+        month += 1
+        food -= 4
+        print('Месяц -', month, ', Гречка -', food)
+    # task 2
+    summ = int(input('Введито количество должников: '))
+    all_debt = 0
+    for number in range(0, summ, 5):
+        print('Должник с номером:', number)
+        debt = int(input('Введите ваш долг: '))
+        all_debt += debt
+    print('Общая сумма долга:', all_debt)
+    # task 3
+    reverse_timer = int(input('Сколько секунд будем греть? '))
+    for timer in range(reverse_timer, 0, -1):
+        print('Таймер', reverse_timer)
+        reverse_timer -= 1
+        stop = int(input('Прервать? '))
+        if stop == 1:
+            print('Ваша еда готова, можете забрать')
+            print('Оставшееся время:', reverse_timer)
+            break
+        elif stop == 0:
+            continue
+        if timer == 0:
+            print('Ваша еда готова, осторожно горячo!')
+    # task 4
+    number_1 = int(input('Введите первое число: '))
+    number_2 = int(input('Введите второе число: '))
+    number_3 = int(input('Введите третье число: '))
+    count = 0
+    summ = 0
+    for number in range(number_1, number_2 + 1):
+        if number % 3 == 0:
+            summ += number
+            count += 1
+        number += 1
+    result = summ // count
+    print('Cреднее арифметическое всех кратных', number_3, 'из отрезка', number_1, 'и', number_2, 'будет', result)
+    # task 5
+    number_1 = int(input('Введите начало отрезка: '))
+    number_2 = int(input('Введите конец отрезка: '))
+    number_3 = int(input('Введите шаг: '))
+    y = 0
+    for x in range(number_2, number_1 - 1, number_3):
+        y = (x ** 3) + 2 * (x ** 2) - (4 * x) +1
+        print('Если значение равна', x, 'результат функции', y)
+    # task 6
+    educational_grant = int(input('Ежемесячная стипендия: '))
+    expenses = int(input('Расходы: '))
+    need_to_ask = 0
+    for month in range(0, 9 + 1):
+        month += 1
+        difference = expenses - educational_grant
+        need_to_ask = need_to_ask + difference
+        print(month, 'месяц траты', expenses, 'не хватает', need_to_ask)
+        expenses = expenses * 1.03
+    print('Нужно попросить у родителей', need_to_ask)
+    # task 7
+    number = int(input('Введите число: '))
+    summ = 0
+    for n in range(0, number):
+        result = (-1) ** n * 1 / 2 ** n
+        print('Число =', n, 'Результат:', result)
+        summ = summ + result
+    print('Сумма равна:', summ)
+    # task 8
+    boys = int(input('Введите кол-во мальчиков: '))
+    girls = int(input('Введите кол-во девочек: '))
+    result = ''
+    if (boys > 2 * girls) or (girls > 2 * boys):
+        print('Нет решения')
+    elif boys >= girls:
+        count = boys - girls
+        for bgb in range(count):
+            result += 'BGB'
+        for bg in range(girls - count):
+            result += 'BG'
+    else:
+        count = girls - boys
+        for gbg in range(count):
+            result += 'GBG'
+        for gb in range(boys - count):
+            result += 'GB'
+    print(result)
+
+    # 9.6 Практическая работа
+    # task 1
+    password = 'Карамба'
+    count = 0
+    for i in range(1, 10 + 1):
+        text = input('Введите слово: ')
+        if text == password:
+            count += 1
+    print('Совподают:', count)
+    # task 2
+    text = input('Введите текст: ')
+    step = 0
+    for symbol in (text):
+        step += 1
+        if symbol == '*':
+            print('Символ «*» стоит на позиции', step)
+            break
+    # task 3
+    row = int(input('Введите количество рядов: '))
+    place = int(input('Введите количество сидений в ряде: '))
+    meter = int(input('Введите количество метров между рядами: '))
+    print('\nCцена\n')
+    for k in range(row):
+        for i in range(1):
+            print('=' * place, end = '')
+            print('*' * meter, end = '')
+            print('=' * place, end = '')
+            print()
+    # task 4
+    length = 8
+    width = 10
+    while True:
+        print('Марсоход находится на позиции', length, width, ', введите команду:')
+        move = input('Оператор: ')
+        if move == 'W':
+            if width == 20:
+                continue
+            width += 1
+        elif move == 'S':
+            if width == 1:
+                continue
+            width -= 1
+        elif move == 'D':
+            if length == 15:
+                continue
+            length += 1
+        elif move == 'A':
+            if length == 1:
+                continue
+            length -= 1
+    # task 5
+    text = input('Введите текст: ')
+    summ = 0
+    result = 0
+    for symbols in (text):
+        if symbols != ' ':
+            summ += 1
+        else:
+            if summ > result:
+                result = summ
+            summ = 0
+    print(result)
+
+    text = input('Введите текст: ')
+    summ = 0
+    result = 0
+    for symbols in (text):
+        if symbols != ' ':
+            summ += 1
+        else:
+          summ = 0
+        if summ > result:
+          result = summ
+    print('Самое длинное слово, букв:', result)
+    # task 6
+    result = 0
+    count = 1
+
+    print('Место:', count, 'Дает молоко:', 1, 'литров')
+    place = input('Свободно? ')
+    if place == 'a':
+        result += 1
+        count += 1
+    else:
+        count += 1
+
+    for i in range(2, 20 + 1, 2):
+        print('Место:', count, 'Дает молоко:', i, 'литров')
+        place = input('Свободно? ')
+        if place == 'a':
+            result += i
+        count += 1
+    print(result)
+    # task 7
+    word = input('Введите зашифрованое слово: ')
+    text_1 = ''
+    text_2 = ''
+    count = 0
+
+    for text in word:
+        count += 1
+        if (count % 2 == 1):
+            text_1 = text_1 + text
+        else:
+            text_2 = text + text_2
+    result = text_1 + text_2
+    print('Расшифрованное сообщение:', result)
+    # task 8
+    word = input('Введите слово: ')
+    palindrome = ''
+    for symbols in word:
+        palindrome = symbols + palindrome
+    if palindrome == word:
+        print('Да, это палиндром!')
+    else:
+        print('Нет, это не палиндром!')
+        
+# 10.6 Практическая работа
+# task 1
+for row in range(0, 5 + 1):
+    for col in range(0, 10 + 1, 2):
+        print(row + col, end = '\t')
+    print()
+# task 2
+number = int(input('Введите число: '))
+for i in range(1, number + 1):
+    for k in range(i):
+        print(i, end = '\t')
+    print()
+# task 3
+a = int(input('Введите длину: '))
+b = int(input('Введите ширину: '))
+for i in range(a + 1):
+    for k in range(b + 1):
+        if (k == 0) or (k == b):
+            print('|', end = '')
+        elif (i == 0) or (i == a):
+            print('-', end = '')
+        else:
+            print(' ', end = '')
+    print()
+# task 4
+count = int(input('Введите кол-во чисел: '))
+summ = 0
+for i in range(1, count + 1):
+    number = int(input('Введите число: '))
+    for j in range(2, number):
+        if number % j == 0:
+            break
+    else:
+        summ += 1
+print('Количество простых чисел в последовательности:', summ)
+# task 5
+count = int(input('Сколько кол-во чисел нужно ввести: '))
+total_sum = 0
+result = 0
+sum_numeral = 0
+count_number = 0
+
+for i in range(count):
+    number = int(input('Введите число: '))
+    count_number = number
+    while number > 0:
+        sum_numeral += number % 10
+        number //= 10
+    if sum_numeral > total_sum:
+        total_sum = sum_numeral
+        result = count_number
+        sum_numeral = 0
+    else:
+        sum_numeral = 0
+        
+print('Число:', result, 'сумма цифр:', total_sum)
+# task 6
+size = int(input('Введите высоту пирамиды: '))
+step = 1
+for row in range(1, size + 1):
+    print('0' * (size - row), end = '')
+    for col in range(step):
+        print('#', end = '')
+    step = step + 2
+    print('')
+# task 7
+n = int(input('Введите высоту пирамиды: '))
+count = 1
+for row in range(1, n+1):
+  print('\t' * (n - row), end = '')
+  for col in range(row):
+    print(count, end = '')
+    count += 2
+    print('\t' * 2, end = '')
+  print()
+# task 8
+depth = int(input('Введите число: '))
+for line in range(depth):
+    for leftNumber in range(depth, depth - line - 1, -1):
+        print(leftNumber, end = '')
+    pointCount = 2 * (depth - line - 1)
+    print('.' * pointCount, end = '')
+    for rightNumber in range(depth - line, depth + 1):
+        print(rightNumber, end = '')
+    print()
+
+# 11.6 Практическая работа
+# task 1
+euro = float(input('Введите сумму в евро: '))
+dollar = int(euro * 1.25)
+rubl = int(dollar * 60.87)
+print('В долларах:', dollar, 'В рублях:', rubl)
+# task 2
+import math
+logarifm = 0
+exponent = 0
+
+count = int(input('Введите кол-во чисел: '))
+for i in range(count):
+    number = float(input('Введите число: '))
+    if number > 0:
+        ceil_up = math.ceil(number)
+        logarifm = math.log(ceil_up)
+        print('Логарифм:', logarifm)
+    elif number < 0:
+        floor_down = math.floor(number)
+        exponent = math.exp(floor_down)
+        print('Экспонент:', exponent)
+# task 3
+from math import ceil
+
+file = int(input('Укажите размер файла для скачивания: '))
+speed = int(input('Какова скорость вашего соединения: '))
+second = 1
+for mb in range(speed, file, speed):
+    print('Прошло', second, 'сек. Скачано', mb, 'из', file, 'Мб','(', ceil(100*mb/file), ')%')
+    second += 1
+else:
+    print('Прошло', second, 'сек. Скачано', file, 'из', file, 'Мб','(',ceil(100*file/file) , ')%')
+# task 4
+x = float(input('Введите число: '))
+print('Первая цифра после десятичной точки:', int(x * 10) % 10)
+# task 5
+import math
+earth = 1.08321 * (10 ** 12)
+r = float(input('Введите радиус случайной планеты: '))
+another_planet = round(4 * math.pi / 3 * (r ** 3), 3)
+print()
+print('Объем Земли:', earth)
+print()
+print('Объем Случайной планеты:', another_planet)
+print()
+if earth > another_planet:
+    print('Объём планеты Земля больше в', round(earth / another_planet, 3), 'раз')
+else:
+    print('Объём планеты Земля меньше в (1/', round(earth / another_planet, 3), ') =', round(another_planet / earth, 3), 'раз')
+# task 6
+while True: 
+    x_horse = float(input('Введите местоположение коня: '))
+    y_horse = float(input('Введите местоположение коня: '))
+    x_place = float(input('Введите местоположение на доске: '))
+    y_place = float(input('Введите местоположение на доске: '))
+     
+    center_xhorse = int(x_horse * 10)
+    center_yhorse = int(y_horse * 10)
+    center_xplace = int(x_place * 10)
+    center_yplace = int(y_place * 10)
+
+    if (0 <= center_xhorse <= 8) or (0 <= center_yhorse <=8) or (0 <= center_xplace <= 8) or (0 <= center_yplace <= 8): 
+        print('Конь в клетке', center_xhorse, center_yhorse, 'Точка в клетке', center_xplace, center_yplace)
+        break 
+    else: 
+        print('Вы вышли из рамы, введите повторно') 
+ 
+if abs((center_xhorse - center_xplace) * (center_yhorse - center_yplace)) == 2: 
+    print('Да, конь может ходить в эту точку.') 
+else: 
+    print('Нет, конь не может ходить в эту точку.')
+# task 7
+first = int(input('Введите первое число: '))
+second = int(input('Введите второе число: '))
+max_number = (first + second + abs(first - second)) // 2
+print('Большое число:', max_number)
+
+# 12.6 Практическая работа
+# task 1
+def summa_n(number):
+    result = 0
+    for i in range(1, number + 1, 1):
+        result += i
+    print('Сумма чисел от 1', 'до', number, 'равна', result)
+    
+number = int(input('Введите число: '))
+summa_n(number)
+# task 2
+def test():
+    number = int(input('Введите целое число: '))
+    if number > 0:
+        positive()
+    elif number < 0:
+        negative()
+    else:
+        print('Ошибка ввода.')
+        test()
+
+def positive():
+    print('Положительное')
+
+def negative():
+    print('Отрицательное')
+
+test()
+
+# task 3
+def summa(number):
+    count = 0
+    while number > 0:
+        count += number % 10
+        number //= 10
+    print('Сумма цифр:', count, '\n')
+    main()
+    
+def maximum(number):
+    maximumNumber = 0
+    while number > 0:
+        ostatok = number % 10
+        if ostatok > maximumNumber:
+            maximumNumber = ostatok
+        number //= 10
+    print('Максимальная:', maximumNumber, '\n')
+    main()
+
+def minimum(number):
+    digit = 0
+    minumumNumber = 0
+    minumumNumber = number % 10
+    number //= 10
+    while number > 0:
+        digit = number % 10
+        if digit < minumumNumber:
+            minimumNumber = digit
+        number //= 10
+    print('Минимальная:', minimumNumber, '\n')
+
+def main():
+    number = int(input('Введите число: '))
+    action = int(input('1.Вывесту сумму цирф 2.Максимальную 3.Минимальную: '))
+    if action == 1:
+        summa(number)
+    elif action == 2:
+        maximum(number)
+    elif action == 3:
+        minimum(number)
+    else:
+        print('Ошибка ввода. Должно быть 1, 2 или 3')
+
+main()
+
+# task 4
+def main(number):
+    result = 0
+    lastNumber = 0
+    while number > 0:
+        lastNumber = number % 10
+        number //= 10
+        result = result * 10
+        result = result + lastNumber
+    print('Число наоборот:', result)
+
+number = int(input('Введите число: '))
+main(number)
+
+# task 5
+letter = input('Введите текст: ')
+word = input('Какую букву ищем? ')
+number = int(input('Какую цифру ищем? '))
+word_count = 0
+number_count = 0
+
+for symbol in letter:
+    if symbol == word:
+        word_count += 1
+    elif symbol == str(number):
+        number_count += 1
+print('Количество букв', word, '-', word_count)
+print('Количество цифр', number, '-', number_count)
+
+# task 6
+import math
+a = int(input('Введите первое число: '))
+b = int(input('Введите второе число: '))
+print('Наибольший общий делитель:', math.gcd(a, b))
+
+# task 7
+def rock_paper_scissors():
+    programm = 'Камень'
+    question = input('Выберите: Камень, Ножница или Бумага? ')
+    if question == programm:
+        print('Одинаково! Повторите еще раз')
+        rock_paper_scissors()
+    elif question == 'Ножница':
+        print('Вы проиграли. Выберите еще!')
+        rock_paper_scissors()
+    elif question == 'Бумага':
+        print('Вы выиграли. Выберите еще!')
+        rock_paper_scissors()
+    else:
+        print('Ошибка ввода. Должно быть: Камень, Ножница или Бумага')
+        rock_paper_scissors
+        
+def guess_the_number():
+    secret_number = 5
+    answer = int(input('Угадай число: '))
+    if answer == secret_number:
+        print('Верно, вы выиграли!')
+    else:
+        print('Не верно.')
+        guess_the_number()
+        
+def mainMenu():
+    choice = int(input('Какую игру будете играть? 1.КаменьНожницыБумага 2.Угадай число '))
+    if choice == 1:
+        print('Здесь будет игра «Камень, ножницы, бумага»')
+        rock_paper_scissors()
+    elif choice == 2:
+        print('Здесь будет игра «Угадай число»')
+        guess_the_number()
+    else:
+        print('Ошибка ввода. Должно быть 1 или 2')
+        mainMenu()
+        
+mainMenu()
